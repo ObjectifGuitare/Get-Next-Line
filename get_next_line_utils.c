@@ -6,7 +6,7 @@
 /*   By: sepatez <sepatez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/09 12:27:51 by sepatez           #+#    #+#             */
-/*   Updated: 2023/04/15 19:46:10 by sepatez          ###   ########.fr       */
+/*   Updated: 2023/04/15 20:04:23 by sepatez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,10 +32,12 @@ char	*join_free_s1(char *s1, char *s2)
 
 	if (!s1)
 		return (ft_strdup(s2));
-	// check result malloc and strdup
 	result = malloc(ft_strlen(s1) + ft_strlen(s2) + 1);
 	if (!result)
+	{
+		free(s1);
 		return (0x0);
+	}
 	result[0] = 0;
 	ft_strcat(result, (char *)s1);
 	free(s1);
@@ -82,15 +84,12 @@ char	*ft_substr(char **post_line, int len)
 		return (0x0);
 	i = 0;
 	result = malloc(count_me_daddy((*post_line), len));
-	if (!result)
+	if (!result || !(**post_line))
 	{
+		free(result);
 		free(*post_line);
+		*post_line = 0x0;
 		return (0x0);
-	}
-	if (!((*post_line)[i]))
-	{
-		*result = 0;
-		return (result);
 	}
 	i = -1;
 	while ((*post_line)[++i] && len--)

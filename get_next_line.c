@@ -6,7 +6,7 @@
 /*   By: sepatez <sepatez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/09 12:27:46 by sepatez           #+#    #+#             */
-/*   Updated: 2023/04/15 19:46:00 by sepatez          ###   ########.fr       */
+/*   Updated: 2023/04/15 20:09:52 by sepatez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,7 +92,10 @@ char	*get_next_line(int fd)
 			return (end(&post_line, buffer));
 		buffer[red] = 0;
 		post_line = join_free_s1(post_line, buffer);
-		br = find_br(post_line);
+		if (!post_line)
+			br = 1;
+		else
+			br = find_br(post_line);
 	}
 	free(buffer);
 	return (ft_substr(&post_line, br));
