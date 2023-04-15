@@ -6,7 +6,7 @@
 /*   By: sepatez <sepatez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/09 12:27:49 by sepatez           #+#    #+#             */
-/*   Updated: 2023/04/15 19:04:32 by sepatez          ###   ########.fr       */
+/*   Updated: 2023/04/15 19:36:10 by sepatez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,5 @@ int		count_me_daddy(char *s, size_t len);
 int		ft_strlen( char *s);
 char	*erase_until_br(char *post_line, int start);
 char	*end(char **post_line, char *buffer);
-
-#include <stdio.h>
 
 #endif
